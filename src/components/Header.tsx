@@ -2,9 +2,9 @@ import { NavLink, useLocation } from "react-router-dom"
 
 export default function Header() {
 
-    const location = useLocation()
+    const {pathname} = useLocation()
 
-    console.log(location.pathname)
+    console.log(pathname)
   return (
     <header className="bg-slate-800">
         <div className="mx-auto container px-5 py-16">

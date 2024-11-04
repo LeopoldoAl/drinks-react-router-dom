@@ -4,7 +4,7 @@ export default function Header() {
 
     const location = useLocation()
 
-    console.log(location)
+    console.log(location.pathname)
   return (
     <header className="bg-slate-800">
         <div className="mx-auto container px-5 py-16">

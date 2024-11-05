@@ -13,6 +13,8 @@ export default function Header() {
     useEffect(() => {
         fetchCategories()
     },[])
+
+    const categories = useAppStore((state) => state.categories)
   return (
     <header className={isHome ? 'bg-header bg-center bg-cover': 'bg-slate-800'}>
         <div className="mx-auto container px-5 py-16">
@@ -63,6 +65,12 @@ export default function Header() {
                             className="p-3 w-full rounded-lg focus:outline-none"
                         >
                             <option value="">-- Select ==</option>
+                            {categories.drinks.map((Category) => (
+                                <option 
+                                    value={Category.strCategory}
+                                    key={Category.strCategory}
+                                >{Category.strCategory}</option>
+                            ))}
                         </select>
                     </div>
                     <input 

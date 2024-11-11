@@ -3,6 +3,7 @@ import { NavLink, useLocation } from "react-router-dom"
 import { useAppStore } from "../stores/useAppStore"
 
 export default function Header() {
+    const showNotification = useAppStore((state) => state.showNotification)
     const [searchFilters, setSearchFilters] = useState({
         ingredient: '',
         category: ''
@@ -30,7 +31,10 @@ export default function Header() {
 
         // Validating
         if (Object.values(searchFilters).includes('')) {
-            console.log('All of the fields are necessary!')
+            showNotification({
+                text: 'All of the fields are necessary!', 
+                error: true
+            })
             return
         }
         // Finding out the recipes
